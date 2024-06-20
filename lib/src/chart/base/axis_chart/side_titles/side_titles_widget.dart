@@ -135,6 +135,8 @@ class SideTitlesWidget extends StatelessWidget {
         max: axisMax,
         baseLine: axisBaseLine,
         interval: interval,
+        minIncluded: sideTitles.minIncluded,
+        maxIncluded: sideTitles.maxIncluded,
       );
       axisPositions = axisValues.map((axisValue) {
         final axisDiff = axisMax - axisMin;

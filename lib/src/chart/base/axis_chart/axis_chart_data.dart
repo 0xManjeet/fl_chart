@@ -161,7 +161,12 @@ class SideTitles with EquatableMixin {
     this.getTitlesWidget = defaultGetTitle,
     this.reservedSize = 22,
     this.interval,
+    this.minIncluded = true,
+    this.maxIncluded = true,
   }) : assert(interval != 0, "SideTitles.interval couldn't be zero");
+
+  final bool minIncluded;
+  final bool maxIncluded;
 
   /// Determines showing or hiding this side titles
   final bool showTitles;
@@ -185,6 +190,8 @@ class SideTitles with EquatableMixin {
       getTitlesWidget: b.getTitlesWidget,
       reservedSize: lerpDouble(a.reservedSize, b.reservedSize, t)!,
       interval: lerpDouble(a.interval, b.interval, t),
+      minIncluded: b.minIncluded,
+      maxIncluded: b.maxIncluded,
     );
   }
 
@@ -195,12 +202,16 @@ class SideTitles with EquatableMixin {
     GetTitleWidgetFunction? getTitlesWidget,
     double? reservedSize,
     double? interval,
+    bool? minIncluded,
+    bool? maxIncluded,
   }) {
     return SideTitles(
       showTitles: showTitles ?? this.showTitles,
       getTitlesWidget: getTitlesWidget ?? this.getTitlesWidget,
       reservedSize: reservedSize ?? this.reservedSize,
       interval: interval ?? this.interval,
+      minIncluded: minIncluded ?? this.minIncluded,
+      maxIncluded: maxIncluded ?? this.maxIncluded,
     );
   }
 
@@ -211,6 +222,8 @@ class SideTitles with EquatableMixin {
         getTitlesWidget,
         reservedSize,
         interval,
+        minIncluded,
+        maxIncluded,
       ];
 }
 
